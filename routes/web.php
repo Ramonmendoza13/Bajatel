@@ -11,12 +11,11 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-//Ruta a el login
+// Login
 Route::get('/login', function () {
     return view('login.login');
 })->name('login');
-
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login']); // sin nombre
 
 //Ruta a la zona privada (simplemente accediendo a /zonaprivada vía GET)
 Route::get('/zonaprivada', [zonaprivadaController::class, 'mostrarTarifa'])->middleware('auth')->name('zonaprivada');
@@ -24,23 +23,17 @@ Route::get('/zonaprivada', [zonaprivadaController::class, 'mostrarTarifa'])->mid
 //Ruta para cerrar sesión
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-//Ruta para crear una tarifa (solo para admins)
+// Crear tarifa
 Route::get('/tarifas/crear', [TarifaController::class, 'mostrarFormularioCrearTarifa'])->middleware('auth')->name('tarifas.crear');
+Route::post('/tarifas/crear', [TarifaController::class, 'crearTarifa'])->middleware('auth'); // sin nombre
 
-//Ruta para crear una tarifa (solo para admins)
-Route::post('/tarifas/crear', [TarifaController::class, 'crearTarifa'])->middleware('auth')->name('tarifas.crear');
-
-//Ruta eliminar una tarifa (solo para admins)
+// Eliminar tarifa
 Route::get('/tarifas/eliminar/{id}', [TarifaController::class, 'eliminarTarifa'])->middleware('auth')->name('tarifas.eliminar');
 
-//Ruta para editar una tarifa (solo para admins)
+// Editar tarifa
 Route::get('/tarifas/editar/{id}', [TarifaController::class, 'mostrarFormularioEditarTarifa'])->middleware('auth')->name('tarifas.editar');
+Route::put('/tarifas/editar/{id}', [TarifaController::class, 'editarTarifa'])->middleware('auth'); // sin nombre
 
-//Ruta para editar una tarifa (solo para admins)
-Route::put('/tarifas/editar/{id}', [TarifaController::class, 'editarTarifa'])->middleware('auth')->name('tarifas.editar');
-
-//Ruta para contratar una tarifa personalizada(solo para usuarios registrados)
+// Contratar tarifa
 Route::get('/tarifas/contratar', [TarifaController::class, 'mostrarFormularioContratarTarifa'])->middleware('auth')->name('tarifas.contratar');
-
-//Ruta para contratar una tarifa personalizada (solo para usuarios registrados)
-Route::post('/tarifas/contratar', [TarifaController::class, 'contratarTarifa'])->middleware('auth')->name('tarifas.contratar');
+Route::post('/tarifas/contratar', [TarifaController::class, 'contratarTarifa'])->middleware('auth'); // sin nombre
