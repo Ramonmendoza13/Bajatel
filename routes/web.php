@@ -37,3 +37,12 @@ Route::put('/tarifas/editar/{id}', [TarifaController::class, 'editarTarifa'])->m
 // Contratar tarifa
 Route::get('/tarifas/contratar', [TarifaController::class, 'mostrarFormularioContratarTarifa'])->middleware('auth')->name('tarifas.contratar');
 Route::post('/tarifas/contratar', [TarifaController::class, 'contratarTarifa'])->middleware('auth'); // sin nombre
+
+// ¡Recuerda eliminar esta ruta después de usarla por seguridad!
+Route::get('/run-artisan', function () {
+    \Artisan::call('config:cache');
+    \Artisan::call('route:cache');
+    \Artisan::call('view:cache');
+    \Artisan::call('optimize');
+    return 'Comandos Artisan ejecutados correctamente';
+});
