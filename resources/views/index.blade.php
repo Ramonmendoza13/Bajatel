@@ -11,8 +11,8 @@
                     <h1 class="display-4 fw-bold mb-4">Conectamos tu mundo digital</h1>
                     <p class="lead mb-4">Disfruta de la mejor conexión a internet con velocidades ultrarrápidas y atención personalizada. Bajatel, tu compañía de confianza.</p>
                     <div class="d-flex gap-3">
-                        <a href="{{ url('/tarifas') }}" class="btn btn-light btn-lg">Ver Tarifas</a>
-                        <a href="{{ url('/contacto') }}" class="btn btn-outline-light btn-lg">Contactar</a>
+                        <a href="{{ url('/tarifas/contratar') }}" class="btn btn-light btn-lg">Contratar</a>
+                        <!-- <a href="{{ url('/contacto') }}" class="btn btn-outline-light btn-lg">Contactar</a> -->
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
@@ -71,84 +71,7 @@
         </div>
     </section>
 
-    <!-- Tarifas destacadas -->
-    <section class="pricing-section py-5 mb-5 bg-light">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-12">
-                    <h2 class="display-5 fw-bold mb-3">Nuestras Tarifas</h2>
-                    <p class="lead text-muted">Elige el plan que mejor se adapte a tus necesidades</p>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-header bg-primary text-white text-center py-3">
-                            <h4 class="mb-0">Básico</h4>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <div class="price mb-3">
-                                <span class="display-6 fw-bold">29,99€</span>
-                                <span class="text-muted">/mes</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>100 Mbps de velocidad</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sin límite de datos</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Instalación gratuita</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico incluido</li>
-                            </ul>
-                            <a href="{{ url('/tarifas') }}" class="btn btn-primary w-100">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow border-primary" style="transform: scale(1.05);">
-                        <div class="card-header bg-primary text-white text-center py-3">
-                            <h4 class="mb-0">Recomendado</h4>
-                            <span class="badge bg-warning text-dark">Más Popular</span>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <div class="price mb-3">
-                                <span class="display-6 fw-bold">49,99€</span>
-                                <span class="text-muted">/mes</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>500 Mbps de velocidad</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sin límite de datos</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Instalación gratuita</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico 24/7</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Router WiFi 6 incluido</li>
-                            </ul>
-                            <a href="{{ url('/tarifas') }}" class="btn btn-primary w-100">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-header bg-primary text-white text-center py-3">
-                            <h4 class="mb-0">Premium</h4>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <div class="price mb-3">
-                                <span class="display-6 fw-bold">79,99€</span>
-                                <span class="text-muted">/mes</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>1 Gbps de velocidad</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sin límite de datos</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Instalación gratuita</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soporte técnico prioritario</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Router WiFi 6 avanzado</li>
-                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>IP fija incluida</li>
-                            </ul>
-                            <a href="{{ url('/tarifas') }}" class="btn btn-primary w-100">Contratar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- Call to Action -->
     <section class="cta-section py-5 mb-5">
         <div class="container">
@@ -157,7 +80,7 @@
                     <h2 class="display-5 fw-bold mb-4">¿Listo para cambiar tu conexión?</h2>
                     <p class="lead mb-4">Únete a miles de clientes satisfechos que ya disfrutan de la mejor conexión con Bajatel</p>
                     <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="{{ url('/contacto') }}" class="btn btn-primary btn-lg">Solicitar Información</a>
+                         <!-- <a href="{{ url('/contacto') }}" class="btn btn-primary btn-lg">Solicitar Información</a>-->
                         <a href="tel:+34900123456" class="btn btn-outline-primary btn-lg">
                             <i class="fas fa-phone me-2"></i>Llamar Ahora
                         </a>

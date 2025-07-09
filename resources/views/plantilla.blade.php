@@ -35,12 +35,12 @@
                             <i class="fas fa-tags me-1"></i>Crear Tarifa
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link fw-semibold {{ request()->is('contacto*') ? 'active' : '' }}" href="{{ url('/contacto') }}">
                             <i class="fas fa-envelope me-1"></i>Contacto
                         </a>
                     </li>
-
+                     -->
                 </ul>
 
                 @auth

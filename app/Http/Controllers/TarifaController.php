@@ -35,7 +35,7 @@ class TarifaController extends Controller
     {
         $tarifa = Tarifa::find($id);
         $tarifa->delete();
-        return redirect()->route('zonaprivada')->with('success', 'Tarifa  {$tarifa->id} eliminada correctamente');
+        return redirect()->route('zonaprivada')->with('success', "Tarifa {$tarifa->id} eliminada correctamente");
     }
 
     public function mostrarFormularioEditarTarifa($id)
