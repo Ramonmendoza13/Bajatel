@@ -94,4 +94,20 @@ class TarifaController extends Controller
         //devolver vista pruebas 
         //return view('testJson', compact('jsonTarifa'));
     }
+
+    public function cancelarTarifa(Request $request) {
+        $user = Auth::user(); //Usario autentificado
+        // Si no hay redigirgimos al login
+        if (!$user) {
+            return redirect()->route('login')->with('error', '');
+        }
+
+        $userId = Auth::id();// Obtener el ID del usuario registrado
+        $user = User::find($userId); //Obtener el usuario
+        //Borrar la tarifa del usuario
+        $user->tarifa = null;
+        $user->save();
+
+        return redirect()->route('zonaprivada')->with('success','Tarifa cancelada correctamente');
+    }
 }

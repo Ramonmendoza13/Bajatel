@@ -38,3 +38,6 @@ Route::put('/tarifas/editar/{id}', [TarifaController::class, 'editarTarifa'])->m
 // Contratar tarifa
 Route::get('/tarifas/contratar', [TarifaController::class, 'mostrarFormularioContratarTarifa'])->middleware('auth')->name('tarifas.contratar');
 Route::post('/tarifas/contratar', [TarifaController::class, 'contratarTarifa'])->middleware('auth'); // sin nombre
+
+// Cancelar tarida usuario
+Route::get('/zonaprivada/cancelar', [TarifaController::class, 'cancelarTarifa'])->middleware('auth')->name('cancelarTarifa');

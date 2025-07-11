@@ -1,4 +1,4 @@
-
+PROYECTO DESPLEGADO AQUI -->https://bajatel-production.up.railway.app/
 # Bajatel
 
 Este es un proyecto básico desarrollado para mi portafolio personal. El objetivo es mostrar mis habilidades en el desarrollo de aplicaciones web utilizando Laravel.
@@ -10,8 +10,8 @@ Bajatel es una aplicación de ejemplo donde se pueden gestionar tarifas y usuari
 Puedes usar las siguientes cuentas para acceder y probar la aplicación:
 
 **Administrador:**
-- Usuario: admin@bajatel.com
-- Contraseña: admin123
+- Usuario: RMC1@email.RMC
+- Contraseña: RMC1
 
 **Usuario estándar:**
 - Usuario:RMC2@email.RMC
@@ -21,6 +21,8 @@ Puedes usar las siguientes cuentas para acceder y probar la aplicación:
 > Medidas que faltan por implementar:
  - Añadir la funcion de editar la tarifa actual del usuario
  - Añadir la opcion de cancelar la tarifa
+ - Añadir formularo de registro
+
 
 
 > Si alguna cuenta no funciona, revisa los seeders o crea una nueva desde el registro.

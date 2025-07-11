@@ -3,6 +3,15 @@
 @section('title', 'Bajatel - Zona Privada')
 
 @section('content')
+
+
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+@endif
 @auth
 <div class="container py-4">
     <div class="row">
@@ -186,22 +195,25 @@
                     @endif
 
                     <div class="d-flex gap-2 justify-content-end mt-3">
+                        <!--  FUNCION A IMPLEMENTAR
                         <button class="btn btn-outline-primary">
                             <i class="fas fa-edit me-1"></i>Editar
-                        </button>
-                        <button class="btn btn-outline-secondary">
-                            <i class="fas fa-times me-1"></i>Cancelar
-                        </button>
+                        </button> -->
+                        <a href="{{ route('cancelarTarifa') }}"
+                            class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash me-1"></i>
+                            Cancelar
+                        </a>
                     </div>
 
                     @else
                     <div class="text-center py-5">
                         <i class="fas fa-exclamation-triangle text-warning fa-3x mb-3"></i>
                         <h4 class="text-muted">No tienes tarifas contratadas</h4>
-                        <p class="text-muted">Contacta con nosotros para contratar nuestros servicios</p>
-                        <a href="{{ url('/contacto') }}" class="btn btn-primary">
+                        <p class="text-muted">Perzonaliza tu tarifa</p>
+                        <a href="{{ url('/tarifas/contratar') }}" class="btn btn-primary">
                             <i class="fas fa-phone me-2"></i>
-                            Contactar
+                            Contratar
                         </a>
                     </div>
                     @endif
@@ -223,7 +235,7 @@
 
 
 
-            </div>            @endif
+            </div> @endif
         </div>
     </div>
     @endauth
