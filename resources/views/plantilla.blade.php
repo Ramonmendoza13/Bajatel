@@ -12,6 +12,7 @@
     <script src="{{ asset('JS/formContrataTarifa.js') }}"></script>
 
 
+
 </head>
 
 <body>
@@ -41,6 +42,7 @@
                         </a>
                     </li>
                      -->
+                    
                 </ul>
 
                 @auth

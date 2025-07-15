@@ -6,11 +6,11 @@
 
 
 @if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle me-2"></i>
-        {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fas fa-check-circle me-2"></i>
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+</div>
 @endif
 @auth
 <div class="container py-4">
@@ -220,7 +220,7 @@
                 </div>
             </div>
 
-            <!-- Mostrar JSON tarifa -->
+            <!-- Mostrar JSON tarifa 
             @if(isset($tarifa_usuario) && is_string($tarifa_usuario))
             <div class="card shadow">
                 <div class="card-header bg-secondary text-white">
@@ -233,10 +233,10 @@
                     <pre class="bg-light p-3 border rounded" style="font-size:1rem;">{{ json_encode(json_decode($tarifa_usuario, true), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) }}</pre>
                 </div>
 
+-->
 
-
-            </div> @endif
-        </div>
+        </div> @endif
     </div>
-    @endauth
-    @endsection
+</div>
+@endauth
+@endsection

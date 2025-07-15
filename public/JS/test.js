@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
 
-    // Escucha todos los cambios en radios dentro de cada línea móvil
+    // Delegación: escucha todos los cambios en radios dentro de cada línea móvil
     $(document).on('change', 'input[name^="lineas"][name$="[conservar]"]', function () {
         const $linea = $(this).closest('.lineaMovil');
 
@@ -15,17 +15,9 @@ $(document).ready(function () {
 
 
 
-    // Función para renumerar los títulos visuales de las líneas móviles
-    function renumerarLineasVisibles() {
-        $('.lineaMovil').each(function(i) {
-            $(this).find('.titulo-linea').text('Línea móvil #' + (i + 1));
-        });
-    }
-
     let contadorLineas = $('.lineaMovil').length;
 
     $(document).on('click', '.añadir-linea', function () {
-
         $.ajax({
             url: urlLineaMovilPartial,
             type: 'GET',
@@ -33,7 +25,6 @@ $(document).ready(function () {
             success: function (html) {
                 $('#lineas-moviles').append(html);
                 contadorLineas++;
-                renumerarLineasVisibles();
             }
         });
     });
@@ -97,7 +88,7 @@ $(document).ready(function () {
                 let label = llamadasInput.next('label').text();
                 llamadas = label.split('-')[0].trim(); // Solo el valor de minutos
                 let match = label.match(/([\d,.]+) €/);
-                if (match)  precioLlamadas = parseFloat(match[1].replace(',', '.'));
+                if (match) precioLlamadas = parseFloat(match[1].replace(',', '.'));
             }
             precioMoviles += precioGb + precioLlamadas;
             resumenMoviles += `<div><b>Línea móvil #${index+1}:</b> ${gb || 'Sin GB'} | ${llamadas || 'Sin llamadas'} (${(precioGb+precioLlamadas).toFixed(2)} €/mes)</div>`;
@@ -127,10 +118,4 @@ $(document).ready(function () {
     actualizarResumenYPrecio();
 
 
-    // Eliminar línea móvil
-    $(document).on('click', '.eliminar-linea', function () {
-        $(this).closest('.lineaMovil').remove();
-        renumerarLineasVisibles();
-        actualizarResumenYPrecio();
-    });
 });
