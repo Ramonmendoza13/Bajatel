@@ -20,8 +20,6 @@ Puedes usar las siguientes cuentas para acceder y probar la aplicación:
 
 > Medidas que faltan por implementar:
  - Añadir la funcion de editar la tarifa actual del usuario
- - Añadir la opcion de cancelar la tarifa
- - Añadir formularo de registro
 
 
 

@@ -56,6 +56,24 @@
                             <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
                         </div>
                     </form>
+                    <!-- Enlace para registrarse -->
+                    <div class="mt-3 text-center">
+                        <a href="{{ url('/registro') }}" class="text-decoration-underline">¿No tienes cuenta? Regístrate aquí</a>
+                    </div>
+                    <!-- Zona de cuentas de prueba -->
+                    <div class="mt-4">
+                        <div class="alert alert-info">
+                            <h5 class="mb-2"><i class="fas fa-user me-1"></i> Cuentas de prueba</h5>
+                            <ul class="mb-1">
+                                <li><b>Admin:</b> RMC1@email.RMC / <span class="text-monospace">RMC1</span></li>
+                                <li><b>Usuario:</b> RMC2@email.RMC / <span class="text-monospace">RMC2</span></li>
+                                <li><b>Usuario:</b> RMC3@email.RMC / <span class="text-monospace">RMC3</span></li>
+                                <li><b>Usuario:</b> RMC4@email.RMC / <span class="text-monospace">RMC4</span></li>
+                                <li><b>Usuario:</b> RMC5@email.RMC / <span class="text-monospace">RMC5</span></li>
+                            </ul>
+                            <small class="text-muted">Puedes usar estas cuentas para probar la web.</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

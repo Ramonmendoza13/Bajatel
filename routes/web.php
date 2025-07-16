@@ -18,6 +18,13 @@ Route::get('/login', function () {
 })->name('login');
 Route::post('/login', [LoginController::class, 'login']); // sin nombre
 
+//Registro
+Route::get('/registro', function () {
+    return view('login.registro');
+})->name('registro');
+Route::post('/registro', [LoginController::class, 'registro']); // sin nombre
+
+
 //Ruta a la zona privada (simplemente accediendo a /zonaprivada vía GET)
 Route::get('/zonaprivada', [zonaprivadaController::class, 'mostrarTarifa'])->middleware('auth')->name('zonaprivada');
 
