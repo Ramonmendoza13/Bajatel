@@ -1,4 +1,4 @@
-PROYECTO DESPLEGADO AQUI -->https://bajatel-production.up.railway.app/
+PROYECTO DESPLEGADO AQUI -->https://bajatel.onrender.com/
 # Bajatel
 
 Este es un proyecto básico desarrollado para mi portafolio personal. El objetivo es mostrar mis habilidades en el desarrollo de aplicaciones web utilizando Laravel.
