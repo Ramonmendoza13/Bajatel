@@ -48,6 +48,7 @@ php artisan cache:clear\n\
 php artisan route:clear\n\
 php artisan view:clear\n\
 php artisan migrate --force\n\
+php artisan db:seed --force\n\
 exec "$@"' > /entrypoint.sh \
     && chmod +x /entrypoint.sh
 
