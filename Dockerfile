@@ -10,33 +10,22 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Instala Node.js y NPM (para Vite)
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
 
 # Copia archivos del proyecto
 WORKDIR /var/www
 COPY . .
 
-# Crear archivo SQLite y permisos
-RUN mkdir -p database \
-    && touch database/database.sqlite \
-    && chmod -R 775 database
-
 # Instala dependencias de Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader \
-    && npm install \
-    && npm run build
+    && npm install && npm run build
+
+# Crear archivo SQLite vacío y dar permisos
+RUN mkdir -p database && touch database/database.sqlite && chmod 664 database/database.sqlite
 
 # Permisos para Laravel
-RUN chmod -R 775 storage bootstrap/cache \
-    && chown -R www-data:www-data storage bootstrap/cache database
-
-# Ejecutar migraciones y limpiar cache
-RUN php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan route:clear \
-    && php artisan view:clear \
-    && php artisan migrate --force
+RUN chmod -R 775 storage bootstrap/cache
 
 # Etapa 2: Producción
 FROM php:8.2-fpm
@@ -49,11 +38,20 @@ RUN apt-get update && apt-get install -y \
 # Copia desde build
 COPY --from=build /var/www /var/www
 
-# Establece directorio de trabajo
 WORKDIR /var/www
 
-# Exponer puerto
+# Crear script de entrada para inicializar SQLite y migraciones
+RUN echo '#!/bin/sh\n\
+mkdir -p database && touch database/database.sqlite && chmod -R 775 database\n\
+php artisan config:clear\n\
+php artisan cache:clear\n\
+php artisan route:clear\n\
+php artisan view:clear\n\
+php artisan migrate --force\n\
+exec "$@"' > /entrypoint.sh \
+    && chmod +x /entrypoint.sh
+
 EXPOSE 9000
 
-# Comando de inicio
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
